@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-
 """
 Unittest for BaseModel class
 """
+
 
 import unittest
 from models.base_model import BaseModel
@@ -11,6 +11,7 @@ import os
 
 
 class TestBaseModel(unittest.TestCase):
+
     def setUp(self):
         self.base_model = BaseModel()
 
@@ -37,6 +38,7 @@ class TestBaseModel(unittest.TestCase):
 
     def test_to_dict_method(self):
         model_dict = self.base_model.to_dict()
+
         self.assertIsInstance(model_dict, dict)
         self.assertEqual(model_dict['__class__'], 'BaseModel')
         self.assertIn('id', model_dict)
