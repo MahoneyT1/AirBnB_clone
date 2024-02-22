@@ -1,0 +1,39 @@
+article {
+    width: 390px;
+    border: 1px solid #FF5A5F;
+    margin-right: 20px;
+    display: flex;
+    margin-bottom: 30px;
+    vertical-align: middle;
+    
+
+}
+
+.articles {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 30px;
+    margin: 30px;
+    font-size: 30px;
+    
+
+}
+
+article h2{
+    font-size: 30px;
+    display: flex;
+    margin-left: 30%;
+    margin-bottom: 30px
+   
+}
+
+.article3 h2{
+    display: flex;
+    margin-left: 40%;
+    margin-bottom: 30px;
+}
+
+.place_articles{
+    font-size: 30px;
+}
