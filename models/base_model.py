@@ -6,7 +6,9 @@ import models
 
 
 class BaseModel:
-    """BaseModel class that defines common attributes/methods for other classes."""
+    """
+    BaseModel class that defines common attributes/methods for
+    other classes."""
 
     def __init__(self, *args, **kwargs):
         """Initialize BaseModel attributes."""
@@ -19,25 +21,29 @@ class BaseModel:
                 if key == "id":
                     self.id = value
                 elif key == "created_at":
-                    self.created_at = self.created_at.strptime(value,"%Y-%m-%dT%H:%M:%S.%f")
+                    self.created_at = self.created_at.strptime
+                    (value, "%Y-%m-%dT%H:%M:%S.%f")
 
                 elif key == "updated_at":
-                    self.updated_at = self.updated_at.strptime(value,"%Y-%m-%dT%H:%M:%S.%f")
-
+                    self.updated_at = self.updated_at.strptime
+                    (value, "%Y-%m-%dT%H:%M:%S.%f")
                 else:
                     self.id = self.id
                     self.created_at = datetime.now()
                     self.updated_at = datetime.now()
 
     def save(self):
-        """Update the public instance attribute updated_at with the current datetime."""
+        """Update the public instance attribute updated_at with
+        the current datetime."""
+
         self.updated_at = datetime.now()
         models.storage.save()
         models.storage.new(self)
 
     def to_dict(self):
         """
-        Return a dictionary containing all keys/values of __dict__ of the instance.
+        Return a dictionary containing all keys/values of __dict__
+        of the instance.
 
         Returns:
             dict: Dictionary representation of the instance.

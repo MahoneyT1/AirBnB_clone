@@ -11,6 +11,7 @@ into an instances.
 from os import path
 import json
 from models.base_model import BaseModel
+from models.user import User
 
 
 class FileStorage:
@@ -48,13 +49,11 @@ class FileStorage:
         If the file does not exist, no exception should be raised.
         """
         def reload(self):
-        
-        if path.exists(self.__file_path):
-            with open(self.__file_path, "r", encoding="utf-8") as file:
-                serialized_ob = json.load(file)
-
-                for key, obj_value in serialized_ob.items():
-                    class_name, obj_id = key.split('.')
-                    obj_cname = globals()[class_name]
-                    obj_instance = obj_cname(**obj_value)
-                    self.__objects[key] = obj_instance
+            if path.exists(self.__file_path):
+                with open(self.__file_path, "r", encoding="utf-8") as file:
+                    serialized_ob = json.load(file)
+                    for key, obj_value in serialized_ob.items():
+                        class_name, obj_id = key.split('.')
+                        obj_cname = globals()[class_name]
+                        obj_instance = obj_cname(**obj_value)
+                        self.__objects[key] = obj_instance
